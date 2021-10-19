@@ -8,6 +8,12 @@ class LinkedList:
     def __init__(self):
         self.head = None;
 
+    def insertHead(self, newNode):
+        temNode = self.head
+        self.head = newNode
+        self.head.next = temNode;
+        del temNode
+
     def insert(self, newNode):
         if self.head is None:
             self.head = newNode
@@ -35,9 +41,9 @@ class LinkedList:
 
 node = Node("john");
 linked = LinkedList();
-# firstNode = linked.insert(node)
-# node1 = Node("james");
-# firstNode = linked.insert(node1)
-# node2 = Node("rashid");
-# firstNode = linked.insert(node2)
+firstNode = linked.insert(node)
+node1 = Node("james");
+firstNode = linked.insert(node1)
+node2 = Node("rashid");
+firstNode = linked.insertHead(node2)
 linked.printList();
