@@ -21,8 +21,7 @@ class LinkedList:
         del temNode
     def insertAt(self, newNode, pos):
         if pos < 0 or pos > self.listLength():
-            print("invalide position");
-            
+            print("invalid position");
         if pos == 0:
             self.insertHead(newNode);
             return
@@ -37,7 +36,6 @@ class LinkedList:
             currNode = currNode.next;
             currpos += 1;
 
-                
     def insert(self, newNode):
         if self.head is None:
             self.head = newNode
@@ -49,23 +47,62 @@ class LinkedList:
                     break
                 lastNode =  lastNode.next;
             lastNode.next = newNode;
+    def isListEmpty(self):
+        if self.head is None:
+            return True
+        else:
+            return False;
+
+    def deleteHead(self):
+        if self.isListEmpty() == False:
+            previousNode = self.head
+            self.head = self.head.next;
+            previousNode.next = None;
+        else:
+            print("the list is empty");
+
     def deleteEnd(self):
-        lastNode = self.head;
-        while lastNode.next is not None:
-            prevNode = lastNode
-            lastNode = lastNode.next;
-        # del lastNode
-        prevNode.next = None;
+        if self.isListEmpty == False:
+            if self.head.next is None:
+                self.deleteHead();
+                return
+            lastNode = self.head;
+            while lastNode.next is not None:
+                prevNode = lastNode
+                lastNode = lastNode.next;
+            # del lastNode
+            prevNode.next = None;
+        else:
+            print("the list is empty");
+    def deleteAt(self, position):
+        if position < 0 and position >= self.listLength():
+            print("invalid position")
+            return;
+        if self.isListEmpty() is False:
+            if position == 0:
+                self.deleteHead
+                return
+            currentNode = self.head;
+            currentPos = 0;
+            while True:
+                if currentPos == position:
+                    prevNode.next = currentNode.next
+                    currentNode.next = None;
+                    break
+                prevNode = currentNode
+                currentNode = currentNode.next
+                currentPos += 1;
+
+
+                
     def printList(self):
         currentnode = self.head
         if self.head is None:
             print("List is empty")
             return
-            
         while True:
             if currentnode is None:
                 break
-            
             print(currentnode.data)
             currentnode = currentnode.next
 
@@ -73,10 +110,11 @@ class LinkedList:
 node = Node(10);
 linked = LinkedList();
 firstNode = linked.insert(node)
-node1 = Node(20);
+node1 = Node(15);
 secondNode = linked.insert(node1)
-node2 = Node(15);
+node2 = Node(20);
 thirdNode = linked.insert(node2)
-linked.deleteEnd();
+linked.deleteAt(1)
+# linked.deleteEnd()
 linked.printList();
 
