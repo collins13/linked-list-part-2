@@ -107,14 +107,14 @@ class LinkedList:
             currentnode = currentnode.next
 
 
-node = Node(10);
-linked = LinkedList();
-firstNode = linked.insert(node)
-node1 = Node(15);
-secondNode = linked.insert(node1)
-node2 = Node(20);
-thirdNode = linked.insert(node2)
-linked.deleteAt(1)
-# linked.deleteEnd()
-linked.printList();
+# node = Node(10);
+# linked = LinkedList();
+# firstNode = linked.insert(node)
+# node1 = Node(15);
+# secondNode = linked.insert(node1)
+# node2 = Node(20);
+# thirdNode = linked.insert(node2)
+# linked.deleteAt(1)
+# # linked.deleteEnd()
+# linked.printList();
 
