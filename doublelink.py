@@ -22,6 +22,13 @@ class LinkedList:
             currentNode = currentNode.next
         currentNode.next = newNode
         newNode.previous = currentNode;
+        
+    def inserthead(self, newNode):
+        previousNode = self.head
+        self.head = newNode;
+        self.head.next = previousNode
+        previousNode.previous = self.head
+        
     def printList(self):
         if self.head is None:
             print("list is Empty");
@@ -53,6 +60,6 @@ LinkedList = LinkedList();
 
 LinkedList.insertEnd(nodeOne)
 LinkedList.insertEnd(nodeTwo)
-LinkedList.insertEnd(nodeThree)
+LinkedList.inserthead(nodeThree)
 
 LinkedList.printList();
